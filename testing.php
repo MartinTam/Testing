@@ -7,29 +7,33 @@
 
     <body>
 
-        <form action = "testing.php" method = "get">
+        <form action="testing.php" method="POST">
 
-            <input type="number" name = "num1">
-            <input type="number" name = "num2">
-            <input type = "submit">
+            Number 1:
+            <input type="number" name="num1">
+            Number 2:
+            <input type="number" name="num2">
+            <input type="submit" value="Sum">
 
         </form>
-
-        Sum of your two numbers is: 
+        
         <?php
-
-            $num1 = $_GET["num1"];
-            $num2 = $_GET["num2"];
-
-            if (isset($num1) && isset($num2)){
-                echo ($_GET["num1"] + $_GET["num2"]);                
-            }
-            else{
-                echo(0);
-            };
 
             $num1 = 0;
             $num2 = 0;
+            
+            if (isset($_POST["num1"])){
+                $num1 = $_POST["num1"];
+            };
+
+            if (isset($_POST["num2"])){
+                $num2 = $_POST["num2"];
+            };
+
+            $sum = $num1 + $num2;
+
+            echo("Sum of the numbers is: $sum");
+
 
         ?>
 
